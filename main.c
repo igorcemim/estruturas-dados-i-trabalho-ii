@@ -212,6 +212,10 @@ int main(void) {
                 ptitulo("Cadastrar Dívida");
                 divida = divida_inicializar();
                 divida_cadastrar(divida);
+                if (lista_pesquisar_posicao(lista, divida->nome) != NAO_ENCONTRADO) {
+                    printf("\nJá existe uma dívida cadastrada para essa pessoa. Cadastro cancelado.\n");
+                    break;
+                }
                 lista_adicionar(lista, divida);
 
                 pseparador();
