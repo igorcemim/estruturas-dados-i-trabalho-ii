@@ -29,7 +29,7 @@ void ptitulo(char * mensagem) {
 
 // Inicializa um registro de dívida
 TDivida * divida_inicializar() {
-    TDivida * divida = malloc(sizeof(TDivida));;
+    TDivida * divida = malloc(sizeof(TDivida));
 
     divida->valor = 0;
     strcpy(divida->nome, "");
@@ -51,8 +51,8 @@ void divida_cadastrar(TDivida * divida) {
 
 // Exibe os dados de uma dívida
 void divida_exibir(TDivida * divida) {
-    printf("\n\nNome: %s\n", divida->nome);
-    printf("Valor: %.2f\n\n", divida->valor);
+    printf("\nNome: %s\n", divida->nome);
+    printf("Valor: %.2f\n", divida->valor);
 }
 
 // Inicializa uma lista
@@ -78,6 +78,9 @@ TLista * lista_inicializar() {
 // Pesquisa a posição de um registro
 int lista_pesquisar_posicao(TLista * lista, char * nome) {
     for (int i = 0; i < lista->indice; i++) {
+        if (lista->elementos[i] == NULL) {
+            continue;
+        }
         if (strcmp(lista->elementos[i]->nome, nome) == 0) {
             return i;
         }
